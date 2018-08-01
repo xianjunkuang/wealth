@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.provider.houhe.front.dao.StatisticsPlatformDataInfoDao">	
+		
+		<select id="queryLatestStatisticsPlatformDataInfo" resultType="java.util.Map">
+			select t.total_deal_amount  totalDealAmount,ifnull(t.total_has_repayment_amount, 0) totalHasRepaymentAmount
+			from statistics_platform_data_info t 
+			order by t.create_time desc
+			limit 0, 1
+		</select>
+		
+		
+		
+</mapper>

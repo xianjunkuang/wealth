@@ -1,0 +1,154 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.houhe</groupId>
+    <artifactId>wealth</artifactId>
+    <version>1.0.0.0</version>
+  </parent>
+  <artifactId>provider-dao</artifactId>
+  
+  <properties>       
+      <java-version>1.7</java-version>
+  </properties>
+  
+  <dependencies>
+  
+	    <!-- mybatis 依赖开始-->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+		    <version>3.4.0</version>
+		</dependency>
+	    <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis-spring</artifactId>
+		    <version>1.3.0</version>
+		</dependency>
+		<!-- mybatis 依赖结束-->
+		
+		<!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>druid</artifactId>
+		    <version>1.0.29</version>
+		</dependency>
+			
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>5.1.6</version>
+		</dependency>
+
+		<!-- 数据库用户名与密码加密工具 -->
+		<dependency>
+  			<groupId>com.houhe.common</groupId>
+  			<artifactId>common-utils</artifactId>
+  			<version>1.1</version>
+  			<exclusions>
+  				<exclusion>
+  					<groupId>org.springframework</groupId>
+					<artifactId>spring</artifactId>
+  				</exclusion>
+  			</exclusions>
+		</dependency>
+	
+	
+	
+	</dependencies>	
+	
+	
+	<build>
+	  	<plugins>
+	  	   
+		    <plugin>  
+	            <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-clean-plugin</artifactId>
+		        <version>2.5</version>  
+		        <configuration>
+	                <source>${java-version}</source>
+	                <target>${java-version}</target>
+	                <encoding>${project.build.sourceEncoding}</encoding>
+	            </configuration> 
+		    </plugin>  
+		    <plugin>  
+	            <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-deploy-plugin</artifactId>
+		        <version>2.8.2</version>  
+		        <configuration>
+	                <source>${java-version}</source>
+	                <target>${java-version}</target>
+	                <encoding>${project.build.sourceEncoding}</encoding>
+	            </configuration> 
+		    </plugin>  
+		    <plugin>  
+	            <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-install-plugin</artifactId>
+		        <version>2.5.2</version>  
+		        <configuration>
+	                <source>${java-version}</source>
+	                <target>${java-version}</target>
+	                <encoding>${project.build.sourceEncoding}</encoding>
+	            </configuration> 
+		    </plugin>  
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-compiler-plugin</artifactId>
+	            <version>3.3</version>
+	            <configuration>
+	                <source>${java-version}</source>
+	                <target>${java-version}</target>
+	                <encoding>${project.build.sourceEncoding}</encoding>
+	            </configuration>
+	        </plugin>
+	        
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-jar-plugin</artifactId>
+	            <version>2.6</version>
+	            <configuration>
+	                <source>${java-version}</source>
+	                <target>${java-version}</target>
+	                <resourceEncoding>${project.build.sourceEncoding}</resourceEncoding>
+	                <archive>
+			         <addMavenDescriptor>false</addMavenDescriptor>
+			        </archive>
+	            </configuration>
+	        </plugin>
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-war-plugin</artifactId>
+	            <version>2.6</version>
+	            <configuration>
+	                <source>${java-version}</source>
+	                <target>${java-version}</target>
+	                <resourceEncoding>${project.build.sourceEncoding}</resourceEncoding>
+	                <archive>
+			         <addMavenDescriptor>false</addMavenDescriptor>
+			        </archive>
+	            </configuration>
+	        </plugin>
+	        
+	        <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+				<configuration>
+					<useSystemClassLoader>false</useSystemClassLoader>
+					<!-- 跳过测试程序 -->
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			
+	        
+	    </plugins>
+	    
+	    <resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+	</build>	
+</project>

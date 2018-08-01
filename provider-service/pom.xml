@@ -1,0 +1,310 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.houhe</groupId>
+    <artifactId>wealth</artifactId>
+    <version>1.0.0.0</version>
+  </parent>
+  <artifactId>provider-service</artifactId>
+  <packaging>war</packaging>
+  
+   <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- libs -->
+        <junit.version>4.11</junit.version>
+        <jstl.version>1.2</jstl.version>
+        <javaee-api.version>7.0</javaee-api.version>
+        <cglib.version>3.2.2</cglib.version>
+        <aspectjrt.version>1.8.0</aspectjrt.version>
+        <aspectjweaver.version>1.8.0</aspectjweaver.version>
+        <spring.version>4.3.8.RELEASE</spring.version>
+        <log4j.version>1.2.17</log4j.version>
+        <slf4j.version>1.7.21</slf4j.version>
+        <fileupload.version>1.3.1</fileupload.version>
+        <fastjson.version>1.2.11</fastjson.version>
+        <gson.version>2.3.1</gson.version>
+        <java-version>1.7</java-version>
+    </properties>
+
+    <!-- 依赖包集合 -->  
+    <dependencies>  
+        
+        
+        
+        <!-- https://mvnrepository.com/artifact/io.netty/netty -->
+		<dependency>
+		    <groupId>io.netty</groupId>
+		    <artifactId>netty</artifactId>
+		    <version>4.0.0.Alpha5</version>
+		</dependency>
+ 		<!-- 1. junit 依赖 begin junit3.0使用编程方式运行,junit4.0使用注解方式运行  -->  
+        <dependency>  
+            <groupId>junit</groupId>  
+            <artifactId>junit</artifactId>  
+            <version>${junit.version}</version>  
+        </dependency>  
+        <!-- junit 依赖 end  -->  
+
+        <!-- 2. Servlet web相关依赖 begin-->  
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${javaee-api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+        <!-- Servlet web相关依赖 end-->  
+
+        <!-- 3. aspectjweaver 依赖 begin -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectjweaver.version}</version>
+        </dependency>
+        <!-- aspectjweaver 依赖 end -->
+
+        <!-- 4. spring依赖  begin-->  
+        <!-- spring核心依赖-->         
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-core</artifactId>  
+            <version>${spring.version}</version>              
+        </dependency>  
+
+        <!-- spring ioc依赖 -->  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-beans</artifactId>  
+            <version>${spring.version}</version>  
+        </dependency>  
+
+        <!-- spring aop依赖 -->  
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- spring 扩展依赖 -->  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-context</artifactId>  
+            <version>${spring.version}</version>  
+        </dependency>  
+
+        <!--spring dao层依赖-->  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-jdbc</artifactId>  
+            <version>${spring.version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-tx</artifactId>  
+            <version>${spring.version}</version>  
+        </dependency>  
+
+        <!-- spring web相关依赖 -->  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-web</artifactId>  
+            <version>${spring.version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-webmvc</artifactId>  
+            <version>${spring.version}</version>  
+        </dependency>  
+
+        <!-- spring test相关依赖 -->  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-test</artifactId>  
+            <version>${spring.version}</version>  
+        </dependency> 
+        <!-- spring依赖  end-->   
+
+       
+
+        <!-- 7. log日志依赖 begin-->  
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <!--log日志依赖 end-->  
+
+        <!-- Dubbo 依赖 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.5.3</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- Zookeeper 依赖 -->
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.4.6</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j</artifactId>
+                    <groupId>log4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency> 
+        <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>0.10</version>
+        </dependency>
+
+        <!-- 10. 其他依赖 begin -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
+        <!-- fileupload 文件上传 -->
+        <dependency>  
+            <groupId>commons-fileupload</groupId>  
+            <artifactId>commons-fileupload</artifactId>  
+            <version>${fileupload.version}</version>  
+        </dependency>         
+        <dependency>
+        	<groupId>com.houhe</groupId>
+        	<artifactId>provider-core</artifactId>
+        	<version>1.0.0.0</version>
+        </dependency>
+        <dependency>
+        	<groupId>com.houhe</groupId>
+        	<artifactId>provider-dao</artifactId>
+        	<version>1.0.0.0</version>
+        </dependency> 
+		
+    </dependencies>
+    
+    
+    <build>
+	  	<plugins>
+	  	   
+		    <plugin>  
+	            <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-clean-plugin</artifactId>
+		        <version>2.5</version>  
+		        <configuration>
+	                <source>${java-version}</source>
+	                <target>${java-version}</target>
+	                <encoding>${project.build.sourceEncoding}</encoding>
+	            </configuration> 
+		    </plugin>  
+		    <plugin>  
+	            <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-deploy-plugin</artifactId>
+		        <version>2.8.2</version>  
+		        <configuration>
+	                <source>${java-version}</source>
+	                <target>${java-version}</target>
+	                <encoding>${project.build.sourceEncoding}</encoding>
+	            </configuration> 
+		    </plugin>  
+		    <plugin>  
+	            <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-install-plugin</artifactId>
+		        <version>2.5.2</version>  
+		        <configuration>
+	                <source>${java-version}</source>
+	                <target>${java-version}</target>
+	                <encoding>${project.build.sourceEncoding}</encoding>
+	            </configuration> 
+		    </plugin>  
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-compiler-plugin</artifactId>
+	            <version>3.3</version>
+	            <configuration>
+	                <source>${java-version}</source>
+	                <target>${java-version}</target>
+	                <encoding>${project.build.sourceEncoding}</encoding>
+	            </configuration>
+	        </plugin>
+	        
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-jar-plugin</artifactId>
+	            <version>2.6</version>
+	            <configuration>
+	                <source>${java-version}</source>
+	                <target>${java-version}</target>
+	                <resourceEncoding>${project.build.sourceEncoding}</resourceEncoding>
+	                <archive>
+			         <addMavenDescriptor>false</addMavenDescriptor>
+			        </archive>
+	            </configuration>
+	        </plugin>
+	        <plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-war-plugin</artifactId>
+	            <version>2.6</version>
+	            <configuration>
+	                <source>${java-version}</source>
+	                <target>${java-version}</target>
+	                <resourceEncoding>${project.build.sourceEncoding}</resourceEncoding>
+	                <archive>
+			         <addMavenDescriptor>false</addMavenDescriptor>
+			        </archive>
+	            </configuration>
+	        </plugin>
+	        
+	        <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+				<configuration>
+					<useSystemClassLoader>false</useSystemClassLoader>
+					<!-- 跳过测试程序 -->
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			
+	        
+	    </plugins>
+	    
+	    <resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+	</build>
+	
+    <distributionManagement>   
+	    <repository>   
+	        <id>hhcf-release</id>   
+	        <name>hhcf-release-repository</name>   
+	        <url>http://192.168.88.253:8081/nexus/content/repositories/hhcf-release</url>   
+	    </repository>  
+	    <snapshotRepository>   
+	        <id>hhcf-snapshot</id>   
+	        <name>hhcf-snapshot-repository</name>   
+	        <url>http://192.168.88.253:8081/nexus/content/repositories/hhcf-snapshot</url>   
+	    </snapshotRepository>   
+    </distributionManagement>  
+</project>

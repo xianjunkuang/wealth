@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+     	http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+     	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+
+    
+    <context:annotation-config/>
+    <context:component-scan base-package="com.provider.houhe.front"/>
+   <!--  <aop:aspectj-autoproxy />
+	<aop:config proxy-target-class="true"/>
+	<mvc:annotation-driven/> -->
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="houhe_front_provider3" />
+
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+<!--      <dubbo:registry address="zookeeper://192.168.88.242:2181?backup=192.168.88.242:2180,192.168.88.242:2179" /> -->
+     <dubbo:registry address="zookeeper://192.168.2.243:2181?backup=192.168.2.243:2182,192.168.2.243:2183" />
+
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" port="20883" />
+
+  
+    <!-- 声明需要暴露的服务接口  investorAccountService 使用注解已经声明-->
+    <dubbo:service interface="com.provider.houhe.front.service.StatisticsPlatformDataInfoService"  ref="statisticsPlatformDataInfoService" loadbalance="roundrobin" cluster="failsafe" retries="5" protocol="dubbo"/>
+   
+	
+</beans>
+
+

@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.houhe</groupId>
+    <groupId>com.test</groupId>
     <artifactId>wealth</artifactId>
     <version>1.0.0.0</version>
   </parent>
@@ -43,7 +43,7 @@
 
 		<!-- 数据库用户名与密码加密工具 -->
 		<dependency>
-  			<groupId>com.houhe.common</groupId>
+  			<groupId>com.test.common</groupId>
   			<artifactId>common-utils</artifactId>
   			<version>1.1</version>
   			<exclusions>

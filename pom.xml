@@ -127,12 +127,12 @@
 	    <repository>   
 	        <id>hhcf-release</id>   
 	        <name>hhcf-release-repository</name>   
-	        <url>http://192.168.88.253:8081/nexus/content/repositories/hhcf-release</url>   
+	        <url>http://192.168.88.253:8081/nexus/content/repositories/hhcf-release1111</url>   
 	    </repository>  
 	    <snapshotRepository>   
 	        <id>hhcf-snapshot</id>   
 	        <name>hhcf-snapshot-repository</name>   
-	        <url>http://192.168.88.253:8081/nexus/content/repositories/hhcf-snapshot</url>   
+	        <url>http://192.168.88.253:8081/nexus/content/repositories/hhcf-snapshot222</url>   
 	    </snapshotRepository>   
     </distributionManagement>  
 </project>

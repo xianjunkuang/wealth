@@ -122,7 +122,7 @@
 			</resource>
 		</resources>
 	</build>
-	
+	<!--
     <distributionManagement>   
 	    <repository>   
 	        <id>hhcf-release</id>   
@@ -135,4 +135,5 @@
 	        <url>http://192.168.88.253:8081/nexus/content/repositories/snapshot</url>
 	    </snapshotRepository>   
     </distributionManagement>  
+	-->
 </project>

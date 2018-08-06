@@ -5,6 +5,7 @@
   <version>1.0.0.0</version>
   <packaging>pom</packaging>
   <modules>  	
+  	<module>common-utils</module>
   	<module>provider-core</module>
   	<module>provider-entity</module>
   	<module>provider-service</module>

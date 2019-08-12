@@ -16,7 +16,7 @@
   </modules>
   <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!-- libs -->
+        <!-- libs maven-->
         <junit.version>4.11</junit.version>
         <jstl.version>1.2</jstl.version>
         <javaee-api.version>7.0</javaee-api.version>

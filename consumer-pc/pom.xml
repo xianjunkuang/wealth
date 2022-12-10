@@ -17,7 +17,7 @@
         <cglib.version>3.2.2</cglib.version>
         <aspectjrt.version>1.8.0</aspectjrt.version>
         <aspectjweaver.version>1.8.0</aspectjweaver.version>
-        <spring.version>4.3.18.RELEASE</spring.version>
+        <spring.version>6.0.0</spring.version>
     
         <log4j.version>1.2.17</log4j.version>
         <slf4j.version>1.7.21</slf4j.version>
